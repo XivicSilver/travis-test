@@ -1,5 +1,6 @@
-before_install: wget -qO- https://raw.github.com/xtuple/nvm/master/install.sh | sudo bash
-
 language: node_js
 node_js:
   - 0.10
+
+before_script:
+  - npm install -g grunt-cli
