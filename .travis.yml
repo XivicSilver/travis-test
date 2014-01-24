@@ -13,3 +13,6 @@ before_install:
 branches:
   only:
     - master
+
+after_success:
+  - "script/travis-deploy"
