@@ -26,6 +26,9 @@ module.exports = function (grunt) {
     yeomanConfig.app = require('./bower.json').appPath || yeomanConfig.app;
   } catch (e) {}
 
+  // Load build control task.
+  //grunt.loadNpmTasks('grunt-build-control');
+
   grunt.initConfig({
     yeoman: yeomanConfig,
     watch: {
@@ -341,6 +344,20 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:nicolae-olariu/travis-test.git',
+          branch: 'test-branch'
+        }
+      }
     }
   });
 
@@ -387,4 +404,8 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('deploy', [
+    'build',
+    'buildcontrol'])
 };
