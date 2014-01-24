@@ -15,4 +15,7 @@ branches:
     - master
 
 after_success:
-  - "script/travis-deploy"
+  - chmod 600 .travis/deploy_key.pem # this key should have push access
+  - ssh-add .travis/deploy_key.pem
+  - git remote add deploy git@github.com:nicolae-olariu/travis-test-2.git
+  - git push deploy
