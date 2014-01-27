@@ -25,7 +25,8 @@ env:
       - GH_PROJECT_NAME: travis-test
       # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
       # and deploy the output to your project's gh-pages branch.
-      - GH_BRANCH_NAME: deploy-${TRAVIS_BUILD_ID}
+      - CURRENT_TIME: date +%d-%m-%Y-%H:%M:%S
+      - GH_BRANCH_NAME: deploy-${CURRENT_TIME}
 
 branches:
     only:
@@ -35,20 +36,11 @@ branches:
 
 before_script:
   # install dependencies
-  - npm install -g bower
-  - npm install -g grunt-build-control
-  - npm install -g grunt-cli
-  - npm install -g grunt
-  - npm install -g grunt-contrib-compass
+  - npm install -g bower grunt-build-control grunt-cli grunt
   - gem install compass
   - bower install
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-
-#script:
-  # We want to gate on passing tests and a successful build
- # - bower install
- # - grunt
 
 after_success:
   - grunt build
