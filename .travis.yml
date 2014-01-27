@@ -7,10 +7,11 @@ language: node_js
 node_js:
     - 0.10
 
-# whitelist allowed branches
 branches:
     only:
       - master
+    except:
+      - deploy
 
 env:
     global:
@@ -30,6 +31,7 @@ env:
       - GH_PROJECT_NAME: travis-test
       # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
       # and deploy the output to your project's gh-pages branch.
+      - GH_BRANCH_NAME: deploy
 
 before_script:
   # install dependencies
@@ -52,9 +54,9 @@ after_success:
   - grunt build
   - git fetch
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-  - git submodule add -b build3 https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
+  - git submodule add -b ${GH_BRANCH_NAME} https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
   - cd site
-  - if git checkout build3; then git checkout -b build3; fi
+  - if git checkout ${GH_BRANCH_NAME}; then git checkout -b ${GH_BRANCH_NAME}; fi
   - git rm -r .
   - cp -R ../dist/* .
   - cp ../dist/.* .
@@ -64,4 +66,4 @@ after_success:
   - git config user.name "Nicolae Olariu"
   - git commit -am "adding build files to specific branch"
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-  - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:build3 > /dev/null 2>&1
+  - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:${GH_BRANCH_NAME} > /dev/null 2>&1
