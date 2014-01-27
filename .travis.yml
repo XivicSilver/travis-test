@@ -25,7 +25,7 @@ env:
       - GH_PROJECT_NAME: travis-test
       # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
       # and deploy the output to your project's gh-pages branch.
-      - GH_BRANCH_NAME: deploy
+      - GH_BRANCH_NAME: deploy-${TRAVIS_BUILD_ID}
 
 branches:
     only:
