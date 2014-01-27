@@ -23,10 +23,8 @@ env:
       - secure: "LeWP8ZZ3RR20bieH+UDCio5zULd7E6Wci20X961zLCEeSbPnsE48Nqc1WanI5PDMCWpv2E+78yXfB9cGDj3f7cKZrF67tfxq5t+AHXB9/xsmCqpPOF3ztRffw20HnaOR3cHEBUbUopD2kOYVOogU0b5TsKafc2rt0NcmA5/qnoA="
       - GH_OWNER: nicolae-olariu
       - GH_PROJECT_NAME: travis-test
-      # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
-      # and deploy the output to your project's gh-pages branch.
-      - CURRENT_TIME: date +%d-%m-%Y-%H:%M:%S
-      - GH_BRANCH_NAME: deploy-${CURRENT_TIME}
+      - GH_BRANCH_NAME: deploy
+      - DESTINATION_FOLDER: dist
 
 branches:
     only:
@@ -39,6 +37,7 @@ before_script:
   - npm install -g bower grunt-build-control grunt-cli grunt
   - gem install compass
   - bower install
+  # run tests on FF - http://docs.travis-ci.com/user/gui-and-headless-browsers/
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 
@@ -46,12 +45,12 @@ after_success:
   - grunt build
   - git fetch
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-  - git submodule add -b ${GH_BRANCH_NAME} https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
+  #- git submodule add -b ${GH_BRANCH_NAME} https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
   - cd site
   - if git checkout ${GH_BRANCH_NAME}; then git checkout -b ${GH_BRANCH_NAME}; fi
   - git rm -r .
-  - cp -R ../dist/* .
-  - cp ../dist/.* .
+  - cp -R ../${DESTINATION_FOLDER}/* .
+  - cp ../${DESTINATION_FOLDER}/.* .
   - echo "bower_components" >> .gitignore
   - git add .
   - git config user.email "nicolae-olariu@xivic.com"
