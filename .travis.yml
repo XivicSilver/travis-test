@@ -65,6 +65,6 @@ after_success:
   - git add -f .
   - git config user.email "nicolae-olariu@xivic.com"
   - git config user.name "Nicolae Olariu"
-  - git commit -am "adding the yeoman build files to build [ci skip]"
+  - git commit -am "adding build files to specific branch"
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
   - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:build > /dev/null 2>&1
