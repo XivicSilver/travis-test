@@ -19,4 +19,6 @@ branches:
     - master
 
 after_success:
-  - grunt deploy
+  - grunt build
+  - git status
+  - grunt buildcontrol
