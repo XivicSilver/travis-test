@@ -58,6 +58,7 @@ after_success:
   - git rm -r .
   - cp -R ../dist/* .
   - cp ../dist/.* .
+  - echo "bower_components" >> .gitignore
   - git add .
   - git config user.email "nicolae-olariu@xivic.com"
   - git config user.name "Nicolae Olariu"
