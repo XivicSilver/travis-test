@@ -7,12 +7,6 @@ language: node_js
 node_js:
     - 0.10
 
-branches:
-    only:
-      - master
-    except:
-      - deploy
-
 env:
     global:
       # GH_OAUTH_TOKEN is the oauth token generated as described at
@@ -32,6 +26,12 @@ env:
       # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
       # and deploy the output to your project's gh-pages branch.
       - GH_BRANCH_NAME: deploy
+
+branches:
+    only:
+      - master
+    except:
+      - ${GH_BRANCH_NAME}
 
 before_script:
   # install dependencies
