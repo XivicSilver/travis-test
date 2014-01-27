@@ -22,5 +22,6 @@ after_success:
   - grunt build
   - pwd
   - ls
+  - git branch
   - git status
   - grunt buildcontrol
