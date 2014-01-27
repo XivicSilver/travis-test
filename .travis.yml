@@ -52,9 +52,9 @@ after_success:
   - grunt build
   - git fetch
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-  - git submodule add -b build2 https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
+  - git submodule add -b build3 https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
   - cd site
-  - if git checkout build2; then git checkout -b build2; fi
+  - if git checkout build3; then git checkout -b build3; fi
   - git rm -r .
   - cp -R ../dist/* .
   - cp ../dist/.* .
@@ -64,4 +64,4 @@ after_success:
   - git config user.name "Nicolae Olariu"
   - git commit -am "adding build files to specific branch"
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-  - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:build2 > /dev/null 2>&1
+  - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:build3 > /dev/null 2>&1
