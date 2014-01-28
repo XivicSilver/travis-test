@@ -23,7 +23,7 @@ env:
       - secure: "LeWP8ZZ3RR20bieH+UDCio5zULd7E6Wci20X961zLCEeSbPnsE48Nqc1WanI5PDMCWpv2E+78yXfB9cGDj3f7cKZrF67tfxq5t+AHXB9/xsmCqpPOF3ztRffw20HnaOR3cHEBUbUopD2kOYVOogU0b5TsKafc2rt0NcmA5/qnoA="
       - GH_OWNER: nicolae-olariu
       - GH_PROJECT_NAME: travis-test
-      - GH_BRANCH_NAME: deploy
+      - GH_BRANCH_NAME: deploy-staging
       - DESTINATION_FOLDER: dist
       - DEPLOY_SITE: deploy_site
       - GH_PROJECT_URL: https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME}
