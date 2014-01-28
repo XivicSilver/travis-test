@@ -1,1 +1,0 @@
-"use strict";angular.module("travisTestApp",[]).config(function(a){a.when("/",{templateUrl:"views/main.html",controller:"MainCtrl"}).otherwise({redirectTo:"/"})}),angular.module("travisTestApp").controller("MainCtrl",function(a){a.awesomeThings=["HTML5 Boilerplate","AngularJS","Karma"],console.log("main controller!")});
