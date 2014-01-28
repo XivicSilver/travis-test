@@ -48,7 +48,7 @@ after_success:
   - git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
   - cd ${DEPLOY_SITE}
   - if git checkout ${GH_BRANCH_NAME}; then git checkout -b ${GH_BRANCH_NAME}; fi
-  - git rm -r . && git reset -q -- .travis.yml
+  - git rm -r . && git checkout .travis.yml
   - cp -R ../${DESTINATION_FOLDER}/* .
   - cp ../${DESTINATION_FOLDER}/.* .
   - echo "bower_components" >> .gitignore
