@@ -32,7 +32,7 @@ branches:
     only:
       - master
     except:
-      - ${GH_BRANCH_NAME}
+      - deploy
 
 before_script:
   # install dependencies
