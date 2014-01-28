@@ -45,12 +45,6 @@ after_success:
   # build the mofo
   - grunt build
   - git fetch
-  # modify travis.yml file
-  - echo " " >> .travis.yml
-  # and stash that change
-  - git stash
-  # echo the stash, just to check if it's there
-  - git stash list
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
   - git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
   - cd ${DEPLOY_SITE}
@@ -60,7 +54,7 @@ after_success:
   - cp ../${DESTINATION_FOLDER}/.* .
   - echo "bower_components" >> .gitignore
   # pop the .travis.yml file from the stash
-  - git stash apply
+  - echo -e "branches:\n\t- only:\n\t\t- master" > .travis.yml
   - git add .
   - git config user.email "git@xivic.com"
   - git config user.name "xivic"
