@@ -54,7 +54,7 @@ after_success:
   - cp ../${DESTINATION_FOLDER}/.* .
   - echo "bower_components" >> .gitignore
   # pop the .travis.yml file from the stash
-  - echo -e "branches:\n\t- only:\n\t\t- master" > .travis.yml
+  - echo -e "branches:\n  - only:\n    - master" > .travis.yml
   - git add .
   - git config user.email "git@xivic.com"
   - git config user.name "xivic"
