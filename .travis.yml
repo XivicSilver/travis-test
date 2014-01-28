@@ -42,10 +42,15 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
 
 after_success:
-  # modify travis.yml file and stash that change
-  - echo " " >> .travis.yml && git stash;
+  # build the mofo
   - grunt build
   - git fetch
+  # modify travis.yml file
+  - echo " " >> .travis.yml
+  # and stash that change
+  - git stash
+  # echo the stash, just to check if it's there
+  - git stash list
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
   - git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
   - cd ${DEPLOY_SITE}
@@ -57,8 +62,8 @@ after_success:
   # pop the .travis.yml file from the stash
   - git stash apply
   - git add .
-  - git config user.email "nicolae-olariu@xivic.com"
-  - git config user.name "Nicolae Olariu"
-  - git commit -am "adding build files to specific branch"
+  - git config user.email "git@xivic.com"
+  - git config user.name "xivic"
+  - git commit -am "[travis deploy] adding build files to specific branch"
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
   - git push ${GH_PROJECT_URL} HEAD:${GH_BRANCH_NAME} > /dev/null 2>&1
