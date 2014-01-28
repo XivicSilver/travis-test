@@ -7,4 +7,6 @@ angular.module('travisTestApp')
       'AngularJS',
       'Karma'
     ];
+    
+    console.log('main controller!');
   });
