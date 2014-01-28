@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('travisTestApp', [])
-  .config(function ($routeProvider) {
+angular.module('travisTestApp', ['ngRoute'])
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -10,4 +10,4 @@ angular.module('travisTestApp', [])
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);
