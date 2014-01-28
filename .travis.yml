@@ -33,7 +33,7 @@ branches:
     - master
 
 before_script:
-  # install dependencies
+  # install needed dependencies
   - npm install -g bower grunt-build-control grunt-cli grunt
   - gem install compass
   - bower install
