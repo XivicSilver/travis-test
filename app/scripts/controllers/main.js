@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('travisTestApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['$scope', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -9,4 +9,4 @@ angular.module('travisTestApp')
     ];
 
     console.log('main controller test!');
-  });
+  }]);
