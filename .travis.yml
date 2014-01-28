@@ -31,8 +31,6 @@ env:
 branches:
     only:
       - master
-    except:
-      - deploy
 
 before_script:
   # install dependencies
