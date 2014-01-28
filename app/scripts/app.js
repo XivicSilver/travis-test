@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('travisTestApp', ['ngRoute'])
+angular.module('travisTestApp', [])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
