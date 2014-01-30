@@ -8,5 +8,5 @@ angular.module('travisTestApp')
       'Karma'
     ];
 
-    console.log('main controller test!');
+    $scope.TT = '@@TT';
   }]);
