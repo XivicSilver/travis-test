@@ -55,7 +55,7 @@ after_success:
   - echo "bower_components" >> .gitignore
   # pop the .travis.yml file from the stash
   - echo -e "branches:\n  - only:\n    - master" > .travis.yml
-  - git add .
+  - git add -f .
   - git config user.email "git@xivic.com"
   - git config user.name "xivic"
   - git commit -am "[travis deploy] adding build files to specific branch"
