@@ -24,11 +24,11 @@ env:
         # User specific env variables
         - secure: "bjlCpqt2uZhz6IsUnkGNyBM2qXbpTMLXk304vpnIofIY+rl1aflXvFYOqK7pShld/+Zb48hAS2YNG1yPxIjDAL8U/cXdcz1lbYpRGXzKVna7DcFnQoFmyFI/9KN8sj8B/a9X7z3RNuiYidPGVsea/sXJ5S6TzLCxsDapBTSTVF4="
         - GH_OWNER: nicolae-olariu
-      - GH_PROJECT_NAME: travis-test
-      - GH_BRANCH_NAME: deploy-staging
-      - DESTINATION_FOLDER: dist
-      - DEPLOY_SITE: deploy_site
-      - GH_PROJECT_URL: https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME}
+        - GH_PROJECT_NAME: travis-test
+        - GH_BRANCH_NAME: deploy-staging
+        - DESTINATION_FOLDER: dist
+        - DEPLOY_SITE: deploy_site
+        - GH_PROJECT_URL: https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME}
         # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
         # and deploy the output to your project's gh-pages branch.
 
