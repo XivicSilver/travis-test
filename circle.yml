@@ -1,0 +1,29 @@
+## Customize the test machine
+machine:
+
+  # Version of ruby to use
+  node:
+    version:
+      0.10.0
+
+## Customize dependencies
+dependencies:
+  pre:
+    # install needed dependencies
+    - npm install
+    - npm install -g bower grunt-build-control grunt-cli grunt
+    - gem install compass
+    - bower install
+
+## Customize test commands
+test:
+  override:
+    #- phpunit test/unit-tests # use PHPunit for testing
+    - npm test
+  post:
+    - grunt build
+
+## Customize deployment commands
+#deployment:
+  #staging:
+    #branch: deploy-circle
