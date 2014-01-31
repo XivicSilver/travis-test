@@ -20,7 +20,7 @@ env:
       # travis encrypt GH_OAUTH_TOKEN=XXXXXXXXXXXXXXX
       #
       # User specific env variables
-      - secure: "mlpRXw6hms2b1O5YJRA2jWAqHkz0rBTcxONt5iigkwH+/YSHV3si6bqfENG1IoRC3C6UCA1oPqvfJxhFsfDYND7BiGoPPc8lSAy0jPJfAMfBpOl1q4lFiEJXXH43CqjBnaQHEpqKbHUSXsUUnhye5+hvKpQQy0Z/tykqvFgXPNU="
+      - secure: "irPF1VuVOGKF56TGGjPMXyVZqrc1ds66/NBiuOfJr3GDBVIOwrrWg2MESEGz8dPaYeO/rJvbLjoj2IqOQj0QvHr/Bzkbo6UaZJNyFtn4JeS6UiNBsW21wTFsfVF/FqqrePzHjHrakSJl8yd6b7PBhrFL15dAqL46KUet1VN3tR8="
       - GH_OWNER: XivicSilver
       - GH_PROJECT_NAME: travis-test
       - GH_BRANCH_NAME: deploy-staging
