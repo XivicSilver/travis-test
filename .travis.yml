@@ -31,6 +31,7 @@ env:
 branches:
   only:
     - master
+    - test
 
 before_script:
   # install needed dependenciest
