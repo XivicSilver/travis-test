@@ -20,8 +20,8 @@ env:
       # travis encrypt GH_OAUTH_TOKEN=XXXXXXXXXXXXXXX
       #
       # User specific env variables
-      - secure: "LeWP8ZZ3RR20bieH+UDCio5zULd7E6Wci20X961zLCEeSbPnsE48Nqc1WanI5PDMCWpv2E+78yXfB9cGDj3f7cKZrF67tfxq5t+AHXB9/xsmCqpPOF3ztRffw20HnaOR3cHEBUbUopD2kOYVOogU0b5TsKafc2rt0NcmA5/qnoA="
-      - GH_OWNER: nicolae-olariu
+      - secure: "mlpRXw6hms2b1O5YJRA2jWAqHkz0rBTcxONt5iigkwH+/YSHV3si6bqfENG1IoRC3C6UCA1oPqvfJxhFsfDYND7BiGoPPc8lSAy0jPJfAMfBpOl1q4lFiEJXXH43CqjBnaQHEpqKbHUSXsUUnhye5+hvKpQQy0Z/tykqvFgXPNU="
+      - GH_OWNER: xivic
       - GH_PROJECT_NAME: travis-test
       - GH_BRANCH_NAME: deploy-staging
       - DESTINATION_FOLDER: dist
@@ -33,7 +33,7 @@ branches:
     - master
 
 before_script:
-  # install needed dependencies
+  # install needed dependenciest
   - npm install -g bower grunt-build-control grunt-cli grunt
   - gem install compass
   - bower install
