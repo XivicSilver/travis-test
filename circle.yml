@@ -20,8 +20,3 @@ test:
     - npm test
   post:
     - grunt build
-
-## Customize deployment commands
-deployment:
-  staging:
-    branch: staging
