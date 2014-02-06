@@ -29,12 +29,8 @@ test:
     #- grunt build
     #- git fetch
     #- git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
-    - mkdir deploy_site
     - ls
     #- echo ${DEPLOY_SITE}
-    - cd deploy_site
-    - pwd
-    - ls
     #- if git checkout ${GH_BRANCH_NAME}; then git checkout -b ${GH_BRANCH_NAME}; fi
     #- cp -R ../${DESTINATION_FOLDER}/* .
     #- cp ../${DESTINATION_FOLDER}/.* .
