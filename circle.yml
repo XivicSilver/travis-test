@@ -26,14 +26,19 @@ test:
   override:
     - npm test
   post:
-    #- grunt build
+    - grunt build
+    - ls
     #- git fetch
     #- git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
-    - ls
-    #- echo ${DEPLOY_SITE}
+    #- ls
+    #- cd ${DEPLOY_SITE}
+    #- pwd
+    #- ls
     #- if git checkout ${GH_BRANCH_NAME}; then git checkout -b ${GH_BRANCH_NAME}; fi
     #- cp -R ../${DESTINATION_FOLDER}/* .
+    #- ls
     #- cp ../${DESTINATION_FOLDER}/.* .
+    #- ls
     #- echo "bower_components" >> .gitignore
     # pop the .circle.yml file from the stash
     #- echo -e "branches:\n  - only:\n    - master" > .circle.yml
