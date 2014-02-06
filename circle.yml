@@ -30,11 +30,7 @@ test:
     - git fetch
     - git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
     - ls
+    - echo ${DEPLOY_SITE}
     - cd ${DEPLOY_SITE}
     - pwd
     - ls
-    - if git checkout ${GH_BRANCH_NAME}; then git checkout -b ${GH_BRANCH_NAME}; fi
-    - cp -R ../${DESTINATION_FOLDER}/* .
-    - cd ../${DESTINATION_FOLDER}
-    - ls
-    - pwd
