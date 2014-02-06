@@ -1,11 +1,11 @@
 ## Customize the test machine
 machine:
   environment:
-    GH_OWNER=nicolae-olariu
-    GH_PROJECT_NAME=travis-test
-    GH_BRANCH_NAME=deploy-staging
-    DESTINATION_FOLDER=dist
-    DEPLOY_SITE=deploy_site
+    GH_OWNER:nicolae-olariu
+    GH_PROJECT_NAME:travis-test
+    GH_BRANCH_NAME:deploy-staging
+    DESTINATION_FOLDER:dist
+    DEPLOY_SITE:deploy_site
     GH_PROJECT_URL=https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME}
 
   # Version of ruby to use
