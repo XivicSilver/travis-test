@@ -31,6 +31,6 @@ test:
     - git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
     - ls
     - echo ${DEPLOY_SITE}
-    - cd ${DEPLOY_SITE}
+    - cd "${DEPLOY_SITE}"
     - pwd
     - ls
