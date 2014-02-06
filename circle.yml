@@ -28,5 +28,13 @@ test:
   post:
     - grunt build
     - git fetch
-    - echo ${GH_BRANCH_NAME}
-    - echo ENV['GH_BRANCH_NAME']
+    - git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
+    - ls
+    - cd ${DEPLOY_SITE}
+    - pwd
+    - ls
+    - if git checkout ${GH_BRANCH_NAME}; then git checkout -b ${GH_BRANCH_NAME}; fi
+    - cp -R ../${DESTINATION_FOLDER}/* .
+    - cd ../${DESTINATION_FOLDER}
+    - ls
+    - pwd
