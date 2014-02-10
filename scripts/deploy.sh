@@ -5,27 +5,21 @@ cd ${DEPLOY_SITE}
 
 if git checkout ${GH_BRANCH_NAME}; then git checkout -b ${GH_BRANCH_NAME}; fi
 
-echo "=======================COPYING======================================="
-
 # Copy all files and folders recursively.
 cp -R ../${DESTINATION_FOLDER}/* .
 
 # Copy all hidden files from root.
 cp ../${DESTINATION_FOLDER}/.* .
 
-echo "========================GIT ADDING==================================="
-
 #echo "bower_components" >> .gitignore
 # pop the .circle.yml file from the stash
 #echo -e "branches:\n  - only:\n    - master" > .circle.yml
 
+git status
 git add -f .
 git config user.email "git@xivic.com"
 git config user.name "xivic"
 git commit -am "[circle deploy] adding build files to specific branch"
-
-ls
-pwd
 
 echo "==============================LISTING================================"
 
