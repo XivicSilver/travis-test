@@ -1,5 +1,5 @@
 git fetch
-git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE}
+git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
 
 cd ${DEPLOY_SITE}
 
@@ -17,4 +17,4 @@ git config user.name "xivic"
 git commit -am "[circle deploy] adding build files to specific branch"
 
 # Any command that's using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-git push ${GH_PROJECT_URL} HEAD:${GH_BRANCH_NAME}
+git push ${GH_PROJECT_URL} HEAD:${GH_BRANCH_NAME} > /dev/null 2>&1
