@@ -25,10 +25,10 @@ dependencies:
 test:
   override:
     - npm test
-  #post:
-    #- grunt build
-    #- ls
-    #- pwd
+  post:
+    - grunt build
+    - ls
+    - pwd
     #- git fetch
     #- git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
     #- cd ${DEPLOY_SITE}
