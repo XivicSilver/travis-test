@@ -28,5 +28,4 @@ test:
   post:
     - grunt build
     - ls
-    - cat /scripts/deploy.sh
-    - ./scripts/deploy.sh
+    - . scripts/deploy.sh
