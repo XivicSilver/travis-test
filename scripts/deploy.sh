@@ -1,3 +1,6 @@
+ls
+pwd
+mkdir TESTTEST
 git fetch
 git submodule add -b ${GH_BRANCH_NAME} ${GH_PROJECT_URL} ${DEPLOY_SITE} > /dev/null 2>&1
 cd ${DEPLOY_SITE}
