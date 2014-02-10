@@ -27,4 +27,4 @@ test:
   #  - npm test
   post:
     - grunt build
-    - ./scripts/deply.sh
+    - ./scripts/deploy.sh
