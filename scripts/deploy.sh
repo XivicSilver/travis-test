@@ -15,16 +15,17 @@ cp ../${DESTINATION_FOLDER}/.* .
 # pop the .circle.yml file from the stash
 #echo -e "branches:\n  - only:\n    - master" > .circle.yml
 
+echo "====================================================================="
+
+ls
+
+echo "====================================================================="
+
 git status
 git add -f .
 git config user.email "git@xivic.com"
 git config user.name "xivic"
 git commit -am "[circle deploy] adding build files to specific branch"
-
-echo "==============================LISTING================================"
-
-echo ${GH_PROJECT_URL}
-echo ${GH_BRANCH_NAME}
 
 echo "=============================GIT PUSHING============================="
 
