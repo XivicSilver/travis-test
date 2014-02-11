@@ -311,8 +311,8 @@ module.exports = function (grunt) {
       },
       stylesDist: {
         expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmpbuild/styles/',
+        cwd: '.tmp/styles',
+        dest: '<%= yeoman.dist %>/styles',
         src: '{,*/}*.css'
       }
     },
@@ -442,6 +442,8 @@ module.exports = function (grunt) {
     'autoprefixer',
     'concat',
     'copy:dist',
+    'copy:styles',
+    'copy:stylesDist',
     'replace:production',
     'cdnify',
     'ngmin',
