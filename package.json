@@ -46,7 +46,8 @@
     "phantomjs": "~1.9",
     "grunt-karma": "~0.6.2",
     "grunt-build-control": "~0.1.2",
-    "grunt-replace": "~0.5.1"
+    "grunt-replace": "~0.5.1",
+    "grunt-cli": "~0.1.13"
   },
   "engines": {
     "node": ">=0.8.0"
