@@ -11,7 +11,6 @@ cp -R ../${DESTINATION_FOLDER}/* .
 # Copy all hidden files from root.
 cp ../${DESTINATION_FOLDER}/.* .
 
-
 git add -f .
 git config user.email "git@xivic.com"
 git config user.name "xivic"
