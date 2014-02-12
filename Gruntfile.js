@@ -231,14 +231,14 @@ module.exports = function (grunt) {
       /*By default, your `index.html` <!-- Usemin Block --> will take care of
       minification. This option is pre-configured if you do not wish to use
       Usemin blocks.*/
-      dist: {
-        files: {
-          '<%= yeoman.dist %>/styles/style.css': [
-            '.tmp/styles/{,*/}*.css',
-            '<%= yeoman.app %>/styles/{,*/}*.css'
-          ]
-        }
-      }
+      // dist: {
+      //   files: {
+      //     '<%= yeoman.dist %>/styles/style.css': [
+      //       '.tmp/styles/{,*/}*.css',
+      //       '<%= yeoman.app %>/styles/{,*/}*.css'
+      //     ]
+      //   }
+      // }
     },
     htmlmin: {
       dist: {
@@ -276,7 +276,8 @@ module.exports = function (grunt) {
             'images/{,*/}*.{gif,webp}',
             'styles/fonts/*'
           ]
-        }, {
+        },
+        {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
@@ -290,21 +291,27 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      tmpStyles: {
+        expand: true,
+        cwd: '.tmp/styles/',
+        dest: '<%= yeoman.dist %>/styles',
+        src: '{,*/}*.css'
       }
     },
     concurrent: {
       server: [
-        'coffee:dist',
+        //'coffee:dist',
         'compass:server',
         'copy:styles'
       ],
       test: [
-        'coffee',
+        //'coffee',
         'compass',
         'copy:styles'
       ],
       dist: [
-        'coffee',
+        //'coffee',
         'compass:dist',
         'copy:styles',
         'imagemin',
@@ -388,6 +395,8 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'copy:dist',
+    'copy:styles',
+    'copy:tmpStyles',
     'cdnify',
     'ngmin',
     'cssmin',
