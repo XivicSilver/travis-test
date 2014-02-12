@@ -230,20 +230,20 @@ module.exports = function (grunt) {
         }]
       }
     },
-    cssmin: {
-      // By default, your `index.html` <!-- Usemin Block --> will take care of
-      // minification. This option is pre-configured if you do not wish to use
-      // Usemin blocks.
-      dist: {
-        files: {
-          '<%= yeoman.dist %>/styles/style.css': [
-            '.tmp/styles/{,*/}*.css',
-            '.tmp/concat/styles/{,*/}*.css',
-            '<%= yeoman.app %>/styles/{,*/}*.css'
-          ]
-        }
-      }
-    },
+    // cssmin: {
+    //   // By default, your `index.html` <!-- Usemin Block --> will take care of
+    //   // minification. This option is pre-configured if you do not wish to use
+    //   // Usemin blocks.
+    //   dist: {
+    //     files: {
+    //       '<%= yeoman.dist %>/styles/style.css': [
+    //         '.tmp/styles/{,*/}*.css',
+    //         '.tmp/concat/styles/{,*/}*.css',
+    //         '<%= yeoman.app %>/styles/{,*/}*.css'
+    //       ]
+    //     }
+    //   }
+    // },
     htmlmin: {
       dist: {
         options: {
@@ -383,7 +383,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    'cssmin:dist',
+    'cssmin',
     'copy:dist',
     'cdnify',
     'ngmin',
