@@ -339,19 +339,19 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>/scripts'
         }]
       }
-    },
+    }/*,
     uglify: {
       dist: {
-        files: {/*
+        files: {
           '<%= yeoman.dist %>/scripts/scripts.js': [
             '<%= yeoman.dist %>/scripts/scripts.js'
-          ],*/
+          ],
           '<%= yeoman.dist %>/scripts/app.embedded.js': [
             '<%= yeoman.dist %>/scripts/app.embedded.js'
           ]
         }
       }
-    }
+    }*/
   });
 
   grunt.registerTask('server', function (target) {
