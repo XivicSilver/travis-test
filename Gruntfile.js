@@ -438,8 +438,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
-    'concat',
     'concurrent:dist',
+    'concat',
     'autoprefixer',
     'copy:dist',
     'copy:styles',
