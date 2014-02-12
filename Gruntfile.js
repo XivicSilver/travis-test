@@ -179,12 +179,12 @@ module.exports = function (grunt) {
     },
     // not used since Uglify task does concat,
     // but still available if needed
-    concat: {
-      dist: {
-        src: ['<%= yeoman.app %>/scripts/app.js', '<%= yeoman.app %>/scripts/embedded.js', '<%= yeoman.app %>/scripts/app.run.js'],
-        dest: '<%= yeoman.dist %>/scripts/app.embedded.js'
-      }
-    },
+    // concat: {
+    //   dist: {
+    //     src: ['<%= yeoman.app %>/scripts//**/*.js', '<%= yeoman.app %>/scripts/embedded.js', '<%= yeoman.app %>/scripts/app.run.js'],
+    //     dest: '<%= yeoman.dist %>/scripts/app.embedded.js'
+    //   }
+    // },
     rev: {
       dist: {
         files: {
@@ -234,14 +234,14 @@ module.exports = function (grunt) {
       // By default, your `index.html` <!-- Usemin Block --> will take care of
       // minification. This option is pre-configured if you do not wish to use
       // Usemin blocks.
-      // dist: {
-      //   files: {
-      //     '<%= yeoman.dist %>/styles/main.css': [
-      //       '.tmp/styles/{,*/}*.css',
-      //       '<%= yeoman.app %>/styles/{,*/}*.css'
-      //     ]
-      //   }
-      // }
+      dist: {
+        files: {
+          '<%= yeoman.dist %>/styles/style.css': [
+            '.tmp/styles/{,*/}*.css',
+            '<%= yeoman.app %>/styles/{,*/}*.css'
+          ]
+        }
+      }
     },
     htmlmin: {
       dist: {
@@ -380,16 +380,14 @@ module.exports = function (grunt) {
     'clean:dist',
     'useminPrepare',
     'concurrent:dist',
-//    'autoprefixer',
+    'autoprefixer',
     'copy:dist',
     'cdnify',
     'ngmin',
-    //'cssmin',
     'cssmin:dist',
-    //'concat',
-    'concat:dist',
+    'concat',
     'uglify',
-    // 'rev',
+     'rev',
     'usemin'
   ]);
 
