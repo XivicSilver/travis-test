@@ -301,20 +301,20 @@ module.exports = function (grunt) {
     },
     concurrent: {
       server: [
-        'coffee:dist',
+        //'coffee:dist',
         'compass:server',
         'copy:styles'
       ],
       test: [
-        'coffee',
+        //'coffee',
         'compass',
         'copy:styles'
       ],
       dist: [
-        'coffee',
+        //'coffee',
         'compass:dist',
         'copy:styles',
-        //'imagemin',
+        'imagemin',
         'svgmin',
         'htmlmin'
       ]
@@ -380,9 +380,9 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'useminPrepare',
+    'concat',
     'concurrent:dist',
     'autoprefixer',
-    'concat',
     'cssmin',
     'copy:dist',
     'cdnify',
