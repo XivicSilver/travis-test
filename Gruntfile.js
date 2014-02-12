@@ -19,8 +19,7 @@ module.exports = function (grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist',
-    config: 'config'
+    dist: 'dist'
   };
 
   try {
@@ -56,10 +55,6 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
-      },
-      replace: {
-        files: ['<%= yeoman.app %>/**/*', '<%= yeoman.config %>/**/*'],
-        tasks: ['replace:development']
       }
     },
     autoprefixer: {
@@ -120,7 +115,7 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '.tmpbuild',
+            '.tmp',
             '<%= yeoman.dist %>/*',
             '!<%= yeoman.dist %>/.git*'
           ]
@@ -147,7 +142,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= yeoman.app %>/scripts',
           src: '{,*/}*.coffee',
-          dest: '.tmpbuild/scripts',
+          dest: '.tmp/scripts',
           ext: '.js'
         }]
       },
@@ -175,12 +170,7 @@ module.exports = function (grunt) {
         httpFontsPath: '/styles/fonts',
         relativeAssets: false
       },
-      dist: {
-        options: {
-          cssDir: '.tmpbuild/styles',
-          generatedImagesDir: '.tmpbuild/images/generated'
-        }
-      },
+      dist: {},
       server: {
         options: {
           debugInfo: true
@@ -288,18 +278,10 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
-          cwd: '.tmpbuild/images',
+          cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: [
             'generated/*'
-          ]
-        }, {
-          expand: true,
-          dot: true,
-          cwd: '.tmpbuild',
-          dest: '<%= yeoman.dist %>',
-          src: [
-            '*.{html}'
           ]
         }]
       },
@@ -308,29 +290,23 @@ module.exports = function (grunt) {
         cwd: '<%= yeoman.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
-      },
-      stylesDist: {
-        expand: true,
-        cwd: '.tmpbuild/styles',
-        dest: '<%= yeoman.dist %>/styles',
-        src: '{,*/}*.css'
       }
     },
     concurrent: {
       server: [
-        //'coffee:dist',
+        'coffee:dist',
         'compass:server',
         'copy:styles'
       ],
       test: [
-        //'coffee',
+        'coffee',
         'compass',
         'copy:styles'
       ],
       dist: [
-        //'coffee',
+        'coffee',
         'compass:dist',
-        'copy:stylesDist',
+        'copy:styles',
         'imagemin',
         'svgmin',
         'htmlmin'
@@ -379,35 +355,6 @@ module.exports = function (grunt) {
           branch: 'test-branch2'
         }
       }
-    },
-    replace: {
-      development: {
-        options: {
-          patterns: [{
-            json: grunt.file.readJSON('./config/environments/development.json')
-          }]
-        },
-        files: [{
-          expand: true,
-          flatten: true,
-          src: ['<%= yeoman.app %>/{,*/}*.html'],
-          dest: '.tmp/'
-        }]
-      },
-      production: {
-        options: {
-          patterns: [{
-            json: grunt.file.readJSON('./config/environments/production.json')
-          }]
-        },
-        files: [
-        {
-          expand: true,
-          flatten: true,
-          src: ['<%= yeoman.dist %>/index.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
     }
   });
 
@@ -420,7 +367,6 @@ module.exports = function (grunt) {
       'clean:server',
       'concurrent:server',
       'autoprefixer',
-      'replace:development',
       'connect:livereload',
       'open',
       'watch'
@@ -439,12 +385,9 @@ module.exports = function (grunt) {
     'clean:dist',
     'useminPrepare',
     'concurrent:dist',
-    'concat',
     'autoprefixer',
+    'concat',
     'copy:dist',
-    'copy:styles',
-    'copy:stylesDist',
-    'replace:production',
     'cdnify',
     'ngmin',
     'cssmin',
