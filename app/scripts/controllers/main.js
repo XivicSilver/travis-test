@@ -5,8 +5,15 @@ angular.module('travisTestApp')
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma',
+      'Yay',
+      'It works',
+      'Finally!'
     ];
+    
+    angular.forEach($scope.awesomeThings, function(el, i) {
+      console.log(el, i);
+    });
 
     $scope.TT = '@@TT';
   }]);
