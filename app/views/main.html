@@ -1,9 +1,9 @@
 <div class="hero-unit">
   <h1>'Allo, 'Allo again!</h1>
-  <p>You now have</p>
+  <p>Search what you have installed: <input type="text" placeholder="nicu a zis sa ma pun aici" ng-model="search"></p>
   <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+      <li ng-repeat="thing in awesomeThings | filter:search">{{thing}}</li>
   </ul>
-  <p>installed.</p>
+  <p> You have {{(filter:search).length}} items installed installed.</p>
   <h3>Enjoy coding!-Yeoman</h3>
 </div>
